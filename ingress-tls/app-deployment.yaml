@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: giropops
+  name: giropops-senhas
+  labels:
+    app: giropops-senhas
+spec:
+  selector:
+    matchLabels:
+      app: giropops-senhas
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: giropops-senhas
+    spec:
+      containers:
+        - name: giropops-senhas
+          image: linuxtips/giropops-senhas:1.0
+          resources:
+            requests:
+              cpu: "0.25"
+              memory: 50Mi
+            limits:
+              cpu: "0.5"
+              memory: 100Mi
+          env:
+            - name: REDIS_HOST
+              value: redis-service
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
