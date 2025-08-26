@@ -1,0 +1,7 @@
+apiVersion: v2
+name: giropops-senhas
+description: This is the Giropops Senhas chart, Kubernetes Labs
+version: 0.1.0
+appVersion: 0.1.0
+sources:
+  - https://github.com/badtuxx/giropops-senhas
